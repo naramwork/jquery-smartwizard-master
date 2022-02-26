@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jQuery Smart Wizard - The awesome jQuery step wizard plugin</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Include SmartWizard CSS -->
+    <link href="./css/smart_wizard_all.css" rel="stylesheet" type="text/css" />
+    <link href="./css/my_style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Demo Page Style - You don't need -->
+    <style>
+      body {
+        padding: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SmartWizard html -->
+    <div id="smartwizard">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#step-1">
+            <strong>Step 1</strong> <br />This is step description
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#step-2">
+            <strong>Step 2</strong> <br />This is step description
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#step-3">
+            <strong>Step 3</strong> <br />This is step description
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#step-4">
+            <strong>Step 4</strong> <br />This is step description
+          </a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div
+          id="step-1"
+          class="tab-pane"
+          role="tabpanel"
+          aria-labelledby="step-1"
+        >
+          <div class="grid">
+            <img src="/images/mobile-phone.png" alt="Sample photo" />
+            <img src="/images/tablet.png" alt="Sample photo" />
+            <img src="/images/rounded-headphones.png" alt="Sample photo" />
+            <img src="/images/imac.png" alt="Sample photo" />
+            <img src="/images/laptop.png" alt="Sample photo" />
+            <img src="/images/smart-watch.png" alt="Sample photo" />
+          </div>
+        </div>
+        <div
+          id="step-2"
+          class="tab-pane"
+          role="tabpanel"
+          aria-labelledby="step-2"
+        >
+          <div class="grid">
+            <img src="/images/mobile-phone.png" alt="Sample photo" />
+            <img src="/images/tablet.png" alt="Sample photo" />
+            <img src="/images/rounded-headphones.png" alt="Sample photo" />
+            <img src="/images/imac.png" alt="Sample photo" />
+            <img src="/images/laptop.png" alt="Sample photo" />
+            <img src="/images/smart-watch.png" alt="Sample photo" />
+          </div>
+        </div>
+        <div
+          id="step-3"
+          class="tab-pane"
+          role="tabpanel"
+          aria-labelledby="step-3"
+        >
+          <div class="grid">
+            <img src="/images/mobile-phone.png" alt="Sample photo" />
+            <img src="/images/tablet.png" alt="Sample photo" />
+            <img src="/images/rounded-headphones.png" alt="Sample photo" />
+            <img src="/images/imac.png" alt="Sample photo" />
+            <img src="/images/laptop.png" alt="Sample photo" />
+            <img src="/images/smart-watch.png" alt="Sample photo" />
+          </div>
+        </div>
+        <div
+          id="step-4"
+          class="tab-pane"
+          role="tabpanel"
+          aria-labelledby="step-4"
+        >
+          <ul class="grid_2">
+            <li>
+              <p>1</p>
+            </li>
+            <li>
+              <p>2</p>
+              <button type="button" data-quick-view>Quick view</button>
+            </li>
+            <li class="fullwidth is-hidden" id="quickview-01">
+              <button type="button" data-close>Close 2</button>
+              <p>fullwidth 2</p>
+              <p>
+                This grid item needs to stretch the full width of the page, and
+                force other grid items to reflow around it, whilst remaining
+                "visually connected" to the preceeding grid item.
+              </p>
+              <p>Test <a href="#">inline link</a>.</p>
+            </li>
+            <li>
+              <p>3</p>
+            </li>
+            <li>
+              <p>4</p>
+              <button type="button" data-quick-view>Quick view</button>
+            </li>
+            <li class="fullwidth is-hidden" id="quickview-04">
+              <button type="button" data-close>Close 4</button>
+              <p>fullwidth 4</p>
+              <p>
+                This grid item needs to stretch the full width of the page, and
+                force other grid items to reflow around it, whilst remaining
+                "visually connected" to the preceeding grid item.
+              </p>
+              <p>Test <a href="#">inline link</a>.</p>
+            </li>
+            <li>
+              <p>5</p>
+              <button type="button" data-quick-view>Quick view</button>
+            </li>
+            <li class="fullwidth is-hidden" id="quickview-05">
+              <button type="button" data-close>Close 5</button>
+              <p>fullwidth 5</p>
+              <p>
+                This grid item needs to stretch the full width of the page, and
+                force other grid items to reflow around it, whilst remaining
+                "visually connected" to the preceeding grid item.
+              </p>
+              <p>Test <a href="#">inline link</a>.</p>
+            </li>
+            <li>
+              <p>6</p>
+            </li>
+            <li>
+              <p>7</p>
+            </li>
+            <li>
+              <p>8</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    &nbsp;
+
+    <!-- Include jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Include SmartWizard JavaScript source -->
+    <script
+      type="text/javascript"
+      src="./js/jquery.smartWizard.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      const quickViewButtons = document.querySelectorAll("[data-quick-view]");
+      const closeButtons = document.querySelectorAll("[data-close]");
+      const fullwidthCards = document.querySelectorAll(".fullwidth");
+      let toggle; // Quick view <button>.
+      let toggleParent; // <li>.
+      let fullwidth; // Fullwidth card to be "injected".
+
+      const openQuickView = (toggle, toggleParent, fullwidth) => {
+        toggle.setAttribute("aria-expanded", "true");
+        toggleParent.classList.toggle("is-selected");
+        fullwidth.classList.toggle("is-hidden");
+        // Make fullwidth card keyboard focusable.
+        fullwidth.setAttribute("tabIndex", "0");
+
+        $(".tab-content").css("height", "auto");
+      };
+
+      const closeQuickView = (toggle, toggleParent, fullwidth) => {
+        toggle.setAttribute("aria-expanded", "false");
+        toggleParent.classList.toggle("is-selected");
+        fullwidth.classList.toggle("is-hidden");
+        fullwidth.removeAttribute("tabIndex");
+      };
+
+      quickViewButtons.forEach((quickView) => {
+        // Add appropriate ARIA attributes for "toggle" behaviour.
+        fullwidth = quickView.parentElement.nextElementSibling;
+        quickView.setAttribute("aria-expanded", "false");
+        quickView.setAttribute("aria-controls", fullwidth.id);
+
+        quickView.addEventListener("click", (e) => {
+          toggle = e.target;
+          toggleParent = toggle.parentElement;
+          fullwidth = toggleParent.nextElementSibling;
+
+          // Open (or close) fullwidth card.
+          if (toggle.getAttribute("aria-expanded") === "false") {
+            // Do we have another fullwidth card already open? If so, close it.
+            fullwidthCards.forEach((fullwidthOpen) => {
+              if (!fullwidthOpen.classList.contains("is-hidden")) {
+                toggleParentOpen = fullwidthOpen.previousElementSibling;
+                toggleOpen =
+                  toggleParentOpen.querySelector("[data-quick-view]");
+
+                closeQuickView(toggleOpen, toggleParentOpen, fullwidthOpen);
+              }
+            });
+
+            openQuickView(toggle, toggleParent, fullwidth);
+          } else {
+            closeQuickView(toggle, toggleParent, fullwidth);
+          }
+        });
+      });
+
+      closeButtons.forEach((close) => {
+        close.addEventListener("click", (e) => {
+          fullwidth = e.target.parentElement;
+          toggleParent = e.target.parentElement.previousElementSibling;
+          toggle = toggleParent.querySelector("[data-quick-view]");
+
+          closeQuickView(toggle, toggleParent, fullwidth);
+          toggle.focus(); // Return keyboard focus to "toggle" button.
+        });
+      });
+      $(document).ready(function () {
+        // Toolbar extra buttons
+        var btnFinish = $("<button></button>")
+          .text("Finish")
+          .addClass("btn btn-info")
+          .on("click", function () {
+            alert("Finish Clicked");
+          });
+        var btnCancel = $("<button></button>")
+          .text("Cancel")
+          .addClass("btn btn-danger")
+          .on("click", function () {
+            $("#smartwizard").smartWizard("reset");
+          });
+
+        // Step show event
+        $("#smartwizard").on(
+          "showStep",
+          function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
+            $("#prev-btn").removeClass("disabled");
+            $("#next-btn").removeClass("disabled");
+            if (stepPosition === "first") {
+              $("#prev-btn").addClass("disabled");
+            } else if (stepPosition === "last") {
+              $("#next-btn").addClass("disabled");
+            } else {
+              $("#prev-btn").removeClass("disabled");
+              $("#next-btn").removeClass("disabled");
+            }
+          }
+        );
+        // SmartWizard initialize
+        $("#smartwizard").smartWizard({
+          selected: 0,
+          theme: "arrows", // default, arrows, dots, progress
+          // darkMode: true,
+          transition: {
+            animation: "slide-horizontal", // Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
+          },
+          autoAdjustHeight: true,
+          toolbarSettings: {
+            showNextButton: false, // show/hide a Next button
+            showPreviousButton: false, // show/hide a Previous button
+          },
+        });
+
+        // External Button Events
+        $("#reset-btn").on("click", function () {
+          // Reset wizard
+          $("#smartwizard").smartWizard("reset");
+          return true;
+        });
+
+        $("#prev-btn").on("click", function () {
+          // Navigate previous
+          $("#smartwizard").smartWizard("prev");
+          return true;
+        });
+
+        $(".grid img").on("click", function () {
+          // Navigate next
+          $("#smartwizard").smartWizard("next");
+          return true;
+        });
+
+        // Demo Button Events
+        $("#got_to_step").on("change", function () {
+          // Go to step
+          var step_index = $(this).val() - 1;
+          $("#smartwizard").smartWizard("goToStep", step_index);
+          return true;
+        });
+      });
+    </script>
+  </body>
+</html>
